@@ -21,8 +21,7 @@ const Home = () => {
                     <div className="effect-item">Darah tinggi</div>
                     <div className="effect-item">Kecanduan dan Gangguan</div>
                     <div className="effect-item">Kerusakan otak</div> {/* Sesuai design */}
-                    </div>
-                    </section>
+                    </div></section>
             <span className="animated-message">#NARKOBAMEMBUNUHMU</span>
             </div>
       </div>

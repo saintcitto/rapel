@@ -10,7 +10,7 @@ body {
   color: #333;
 }
 
-/* Container utama untuk konten yang tidak full-width - Tidak akan relevan untuk .effects-section jika di dalam home-content */
+/* Container utama untuk konten yang tidak full-width */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -49,7 +49,8 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* Default: horizontal for larger screens */
+  flex-direction: row;
 }
 
 .navbar-links li {
@@ -74,21 +75,24 @@ body {
   transition: color 0.3s ease;
 }
 
+/* Style untuk link yang sedang aktif */
 .navbar-links a.active {
     color: #333;
 }
 
+/* Dot untuk link yang sedang aktif */
 .navbar-links a.active::before {
     content: '•';
     position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    color: #ffb700;
+    color: #ffb700; /* Warna dot kuning/oranye */
     font-size: 20px;
     line-height: 1;
 }
 
+/* Garis bawah animasi dari tengah */
 .navbar-links a::after {
   content: '';
   position: absolute;
@@ -105,6 +109,7 @@ body {
   width: 100%;
 }
 
+/* Efek hover warna teks */
 .navbar-links a:hover {
   color: #ffb700;
 }
@@ -128,7 +133,7 @@ body {
 }
 
 .home-content {
-  max-width: 500px; /* Ini akan membatasi lebar efek obat terlarang di desktop juga */
+  max-width: 500px;
 }
 
 .home-content h1 {
@@ -208,7 +213,7 @@ body {
 
 .home-image-column {
   flex: 1;
-  background-image: url('../assets/images/home_main_image.avif');
+  background-image: url('../assets/images/home_main_image.avif'); /* Pastikan path ini benar */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -230,11 +235,10 @@ body {
 /* --- Effects Section (Home Page) - Ditempatkan di dalam home-content --- */
 /* Karena struktur HTML, ini akan tetap di dalam kolom kiri hero section */
 .effects-section {
-  padding: 40px 0; /* Sesuaikan padding agar tidak terlalu besar di desktop/mobile */
+  padding: 40px 0;
   text-align: left;
-  background-color: transparent; /* Pastikan tidak ada background yang konflik */
+  background-color: transparent;
   margin-top: 40px; /* Jarak dari #NARKOBAMEMBUNUHMU */
-  /* Hapus margin-top: 0; dari sini karena kita tidak ingin menimpa untuk elemen ini */
 }
 
 .effects-section h2 {
@@ -274,7 +278,6 @@ body {
 }
 
 /* --- Styles untuk halaman lain (Drugs, Treatment, AboutUs) --- */
-/* Asumsi bahwa ini adalah halaman terpisah dan tidak terpengaruh oleh tata letak home.js yang aneh */
 .drugs-page-title {
   font-size: 36px;
   color: #2c3e50;
@@ -586,7 +589,7 @@ body {
 @media (max-width: 992px) {
   /* Untuk navbar */
   .navbar {
-    flex-direction: column;
+    flex-direction: column; /* Navbar keseluruhan menjadi kolom */
     align-items: center;
     padding: 15px;
   }
@@ -603,7 +606,7 @@ body {
     justify-content: center;
   }
   .navbar-links ul {
-    flex-direction: row; /* Tetap horizontal di tablet */
+    flex-direction: row; /* Link tetap horizontal di breakpoint ini (tablet) */
     justify-content: center;
     margin-top: 0;
     margin-left: 0;
@@ -613,16 +616,16 @@ body {
     margin: 0 15px;
   }
 
-
+  /* Home Hero Section */
   .home-hero-section {
     flex-direction: column; /* Hero section menjadi tumpukan vertikal */
-    min-height: auto; /* Agar tinggi tidak terlalu besar di mobile */
+    min-height: auto;
   }
   .home-content-wrapper {
     padding: 60px 20px;
     align-items: center;
     text-align: center;
-    width: 100%; /* Pastikan mengambil lebar penuh */
+    width: 100%;
   }
   .home-content {
     max-width: 100%; /* Agar konten tidak terpotong */
@@ -671,7 +674,7 @@ body {
   }
 
   .navbar-links ul {
-    flex-direction: column; /* Link navbar menjadi vertikal */
+    flex-direction: column; /* Link navbar menjadi vertikal di mobile */
     align-items: center;
   }
   .navbar-links li {
@@ -688,15 +691,15 @@ body {
   }
 
   .effects-section {
-      padding: 20px 0; /* Padding lebih kecil di mobile */
-      margin-top: 20px; /* Jarak dari #NARKOBAMEMBUNUHMU */
+      padding: 20px 0;
+      margin-top: 20px;
   }
   .effects-section h2 {
     font-size: 28px;
     text-align: center;
     border-bottom: none;
     padding-bottom: 0;
-    margin-top: 0; /* Pastikan tidak ada margin atas tambahan di mobile */
+    margin-top: 0;
   }
   .drugs-grid, .treatment-details-grid {
     grid-template-columns: 1fr; /* Grid menjadi 1 kolom */
